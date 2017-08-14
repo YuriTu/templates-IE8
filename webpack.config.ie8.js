@@ -3,19 +3,18 @@ const path = require("path");
 const nodeModules = path.join(__dirname, "node_modules");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const entries = require("./entries").filter(item => !!item.jsPath).reduce((next, cur) => {
-    next[cur.path] = cur.jsPath;
-    return next;
-}, {});
+const entries = {
+    home: "./src/components/index/app.js",
+};
 
 module.exports = {
     entry  : entries,
     output : {
-        filename   : "[name].bundle.js",
-        path       : path.join(__dirname, "dist/js/"),
+        filename : "[name].bundle.js",
+        path     : path.join(__dirname, "dist/js/"),
     },
     module: {
-        loaders : [
+        loaders: [
             {
                 test    : /\.js[x]?$/,
                 exclude : /node_modules/,

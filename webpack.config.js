@@ -1,21 +1,19 @@
 const webpack = require("webpack");
 const path = require("path");
-const nodeModules = path.join(__dirname, "node_modules");
 const DashboardPlugin = require("webpack-dashboard/plugin");
 
 const entries = {
-    index:"./src/components/index/app"
-}
-
+    home: "./src/components/index/app.js",
+};
 module.exports = {
     entry  : entries,
     output : {
         filename   : "[name].bundle.js",
-        path       : path.join(__dirname, "dist/js/"),
-        // publicPath : "http://localhost:9001/dist/js/"
+        path       : path.resolve(__dirname, "dist/js/"),
+        publicPath : "http://localhost:9001/dist/js/"
     },
     module: {
-        loaders : [
+        loaders: [
             {
                 test   : /\.scss$/,
                 loader : "style-loader!css-loader!sass-loader"
@@ -35,12 +33,12 @@ module.exports = {
             }
         ]
     },
-    externals: {
-        "react"     : "React",
-        "react-dom" : "ReactDOM",
-    },
-    devtool: "cheap-module-eval-source-map",
-    plugins: [
+    // externals: {
+    //     "react"     : "React",
+    //     "react-dom" : "ReactDOM",
+    // },
+    devtool : "cheap-module-eval-source-map",
+    plugins : [
         new DashboardPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -57,6 +55,11 @@ module.exports = {
                     "^/api": ""
                 }
             }
+        },
+        headers: {
+            "Access-Control-Allow-Origin"  : "*",
+            "Access-Control-Allow-Methods" : "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers" : "X-Requested-With, content-type, Authorization"
         }
     }
 

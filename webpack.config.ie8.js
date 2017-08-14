@@ -1,6 +1,5 @@
 const webpack = require("webpack");
 const path = require("path");
-const nodeModules = path.join(__dirname, "node_modules");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const entries = {
@@ -30,11 +29,7 @@ module.exports = {
             }
         ]
     },
-    externals: {
-        "react"     : "React",
-        "react-dom" : "ReactDOM",
-    },
     plugins: [
-        new ExtractTextPlugin("../css/[name].css")
+        new ExtractTextPlugin("../css/[name].bundle.css")
     ]
 };

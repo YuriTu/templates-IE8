@@ -1,6 +1,5 @@
 const webpack = require("webpack");
 const path = require("path");
-const DashboardPlugin = require("webpack-dashboard/plugin");
 
 const entries = {
     home: "./src/components/index/app.js",
@@ -35,15 +34,11 @@ module.exports = {
     },
     devtool : "cheap-module-eval-source-map",
     plugins : [
-        new DashboardPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        // new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ],
     devServer: {
-        // hot    : true,
-        // inline : true,
-        proxy  : {
+        proxy: {
             "/api/*": {
                 target       : "http://develop.com",
                 changeOrigin : true,

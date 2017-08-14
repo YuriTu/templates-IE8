@@ -1,7 +1,3 @@
-/**
- * Created by renren on 16/5/30.
- */
-
 const webpack = require("webpack");
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -32,11 +28,6 @@ module.exports = {
                 loader : ExtractTextPlugin.extract("style-loader", "css-loader")
             },
         ]
-    },
-    externals: {
-        "react"     : "React",
-        "jquery"    : "jQuery",
-        "react-dom" : "ReactDOM",
     },
     plugins: [
         new webpack.EnvironmentPlugin(["NODE_ENV"]),

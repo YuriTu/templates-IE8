@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=dev && webpack-dashboard -- webpack-dev-server --inline --progress --color --host 0.0.0.0 --port 9001",
-    "iedev": "NODE_ENV=dev && webpack-dev-server --progress --color --host 0.0.0.0 --port 9001",
+    "iedev": "NODE_ENV=dev && webpack-dev-server --config webpack.config.ie8dev.js --progress --color --host 0.0.0.0 --port 9001",
+    "ie8"  : "webpack --config webpack.config.ie8.js --progress --colors",
     "build": "NODE_ENV=production webpack --config webpack.config.online.js --progress --colors"
   },
   "dependencies": {

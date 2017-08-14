@@ -1,11 +1,12 @@
 # templates-IE8
 react app templates for IE8 
 
-使用REACT兼容IE8的完整解决方案
+兼容IE8的React App的模板。
 
-IE 下的使用
+提供完整的兼容解决方案，包含开发打包，自动化。
 
-IE8调试不支持HMR所以请使用iedev来启动本地server 原因是ie8不支持websoket
+# IE 下的使用
 
-IE8不支持css in js 所以请使用ie8来生成临时css文件，再访问
-如果使用字体文件请务必将css文件生成出来
+IE8调试不支持HMR，所以请使用 `npm run iedev`来启动本地server以进行开发
+之后使用`npm run ie8`来生成对应静态文件，即可开始开发
+
